@@ -7,11 +7,17 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react';
+import Navbar from '~/components/Navbar';
 
 import stylesheet from '~/tailwind.css';
+import carouselStyles from 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: stylesheet },
+  {
+    rel: 'stylesheet',
+    href: carouselStyles,
+  },
 ];
 
 export default function App() {
@@ -27,7 +33,10 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <main className="max-w-10xl mx-auto">
+          <Navbar />
+          <Outlet />
+        </main>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
